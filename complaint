@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint & Request Portal - Mero Mathura</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            padding-bottom: 40px;
+        }
+
+        /* Top Mobile-Style Navigation Bar */
+        .nav-bar {
+            background-color: #18191a;
+            padding: 15px 20px;
+            border-bottom: 3px solid #ff9933;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-bar a {
+            color: #ff9933;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .content-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            margin-top: 10px;
+        }
+
+        .subtitle {
+            color: #ff9933;
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .info-card {
+            background-color: #242526;
+            border: 1px solid #3a3b3c;
+            border-radius: 14px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #3a3b3c;
+            padding-bottom: 5px;
+        }
+
+        /* Form Group Components */
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            font-size: 0.95rem;
+            color: #b0b3b8;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #18191a;
+            border: 1px solid #3a3b3c;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #ff9933;
+            box-shadow: 0 0 5px rgba(255, 153, 51, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Pure CSS Dropdown Selector (No SVG Background Images) */
+        .select-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            padding-right: 40px;
+            cursor: pointer;
+        }
+
+        .select-wrapper::after {
+            content: "";
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-20%);
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 7px solid #ff9933;
+            pointer-events: none;
+        }
+
+        /* Submission Button */
+        .submit-btn {
+            width: 100%;
+            background-color: #ff9933;
+            color: #121212;
+            border: none;
+            padding: 14px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #ffaa44;
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-note {
+            font-size: 0.8rem;
+            color: #b0b3b8;
+            text-align: center;
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back Navigation Panel -->
+    <div class="nav-bar">
+        <a href="index.html">&larr; Back to Dashboard</a>
+    </div>
+
+    <div class="content-container">
+        <h1>Grievance Redressal</h1>
+        <p class="subtitle">Citizen Complaint & Request Portal</p>
+        
+        <div class="info-card">
+            <h3>Submit Details</h3>
+            
+            <form action="#" method="POST" onsubmit="alert('Thank you! Your request has been logged successfully.'); return false;">
+                
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Mobile Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter 10-digit number" pattern="[0-9]{10}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Request Type / Category</label>
+                    <div class="select-wrapper">
+                        <select id="category" name="category" required>
+                            <option value="" disabled selected>Select a relevant option</option>
+                            <option value="civic">Civic Amenities & Infrastructure</option>
+                            <option value="tourism">Tourism Facilities & Guidance</option>
+                            <option value="sanitation">Sanitation & Waste Management</option>
+                            <option value="property">Property Mutation Query</option>
+                            <option value="other">General Feedback & Suggestions</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Detailed Description</label>
+                    <textarea id="message" name="message" placeholder="Provide details regarding your complaint or request..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Request</button>
+                
+                <p class="form-note">Your submission will be processed directly by the civic administration desk. A tracking log token will be issued shortly.</p>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
