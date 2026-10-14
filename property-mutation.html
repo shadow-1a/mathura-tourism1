@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Mutation - Mero Mathura</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            padding-bottom: 80px;
+        }
+
+        .app-header {
+            background: linear-gradient(135deg, #0056b3, #007bff);
+            padding: 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .app-header h1 {
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+
+        .back-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 8px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .main-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-heading {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin: 25px 0 15px 0;
+            font-weight: 600;
+            border-left: 4px solid #ff9933;
+            padding-left: 10px;
+        }
+
+        .info-card {
+            background-color: #242526;
+            border: 2px solid #3a3b3c;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.95rem;
+            color: #b0b3b8;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #18191a;
+            border: 1px solid #3a3b3c;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: #ff9933;
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        select {
+            appearance: none;
+        }
+
+        .select-wrapper::after {
+            content: "";
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-20%);
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 7px solid #ff9933;
+            pointer-events: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #ff9933;
+            color: #121212;
+            border: none;
+            padding: 14px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #e0882e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-header">
+        <h1>Property Mutation</h1>
+        <a href="index.html" class="back-link">&larr; Home</a>
+    </div>
+
+    <div class="main-container">
+        <h2 class="section-heading">Apply for Namantaran</h2>
+        <div class="info-card">
+            <form onsubmit="alert('Application submitted successfully! Your tracking ID has been sent to your registered mobile number.'); return false;">
+                <div class="form-group">
+                    <label>Registered Property ID / Token Number</label>
+                    <input type="text" placeholder="e.g. PROP-2026-XXXX" required>
+                </div>
+                <div class="form-group">
+                    <label>Current Owner's Full Name</label>
+                    <input type="text" placeholder="Enter full name" required>
+                </div>
+                <div class="form-group">
+                    <label>New Applicant / Buyer Name</label>
+                    <input type="text" placeholder="Enter new buyer's name" required>
+                </div>
+                <div class="form-group">
+                    <label>Type of Transfer</label>
+                    <div class="select-wrapper">
+                        <select required>
+                            <option value="" disabled selected>Select sale type</option>
+                            <option value="sale">Registered Sale Deed</option>
+                            <option value="inheritance">Inheritance / Succession</option>
+                            <option value="gift">Gift Deed Settlement</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Verify & Proceed</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
