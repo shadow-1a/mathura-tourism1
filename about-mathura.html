@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Mathura - Mero Mathura</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            padding-bottom: 40px;
+        }
+
+        /* Top Mobile-Style Navigation Bar */
+        .nav-bar {
+            background-color: #18191a;
+            padding: 15px 20px;
+            border-bottom: 3px solid #ff9933;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-bar a {
+            color: #ff9933;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .content-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            margin-top: 10px;
+        }
+
+        .subtitle {
+            color: #ff9933;
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .info-card {
+            background-color: #242526;
+            border: 1px solid #3a3b3c;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        h3 {
+            color: #ff9933;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #3a3b3c;
+            padding-bottom: 5px;
+        }
+
+        p {
+            line-height: 1.7;
+            font-size: 1rem;
+            color: #e4e6eb;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: #b0b3b8;
+            font-size: 0.95rem;
+        }
+
+        ul li::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 0.85rem;
+        }
+
+        /* Highly Compatible Photo Gallery Layout Grid */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 15px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #3a3b3c;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .photo-caption {
+            background-color: rgba(24, 25, 26, 0.85);
+            color: #e4e6eb;
+            font-size: 0.75rem;
+            padding: 6px;
+            text-align: center;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back Navigation Panel -->
+    <div class="nav-bar">
+        <a href="index.html">&larr; Back to Dashboard</a>
+    </div>
+
+    <div class="content-container">
+        <h1>About Mathura</h1>
+        <p class="subtitle">The Sacred Cultural Core of Braj Bhoomi</p>
+        
+        <!-- Section 1: Overview & History -->
+        <div class="info-card">
+            <h3>Historical Significance</h3>
+            <p>Mathura is an ancient, historically prominent city located along the banks of the sacred Yamuna River in Uttar Pradesh, India. Renowned globally as the birthplace of Lord Krishna, it serves as the spiritual heart of the Braj region.</p>
+            
+            <!-- Gallery Grid 1: Mathura Landscape & Shrines -->
+            <div class="photo-gallery">
+                <div class="gallery-item">
+                    <img src="https://unsplash.com" alt="Mathura Heritage Temple">
+                    <div class="photo-caption">Grand Vrindavan-Mathura Shrine</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://unsplash.com" alt="Holy Yamuna River Ghats">
+                    <div class="photo-caption">Sacred Bathing Ghats</div>
+                </div>
+            </div>
+
+            <p>It stands as one of India's oldest continuously inhabited cities, boasting architectural and cultural heritage spanning thousands of years through early empires like the Kushan era.</p>
+        </div>
+        
+        <!-- Section 2: Devotion & Shri Krishna -->
+        <div class="info-card">
+            <h3>Shri Krishna Devotion</h3>
+            <p>The entire identity of Mathura is beautifully intertwined with the stories and pastimes of Lord Krishna. Millions of pilgrims travel here annually to experience the divine vibrations of the land where He spent His early childhood years.</p>
+            
+            <!-- Gallery Grid 2: Shri Krishna Art & Devotional Environment -->
+            <div class="photo-gallery">
+                <div class="gallery-item">
+                    <img src="https://unsplash.com" alt="Shri Krishna Decorative Art">
+                    <div class="photo-caption">Traditional Krishna Painting</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://unsplash.com" alt="Temple Darshan Chanting">
+                    <div class="photo-caption">Festive Temple Darshan</div>
+                </div>
+            </div>
+
+            <p>From the rhythmic morning prayers to the grand midnight celebrations during Janmashtami, the atmosphere resonates with deep spiritual energy, music, and love.</p>
+        </div>
+
+        <!-- Section 3: Culture & Local Facts -->
+        <div class="info-card">
+            <h3>Vibrant Living Culture</h3>
+            <p>The city thrives on unique traditional dynamic expressions, including continuous temple bhajans, traditional Sanjhi art forms, and rhythmic Raslila dance dramas recreating mystical spiritual history.</p>
+            
+            <!-- Gallery Grid 3: Architecture & Sacred Landmarks -->
+            <div class="photo-gallery">
+                <div class="gallery-item">
+                    <img src="https://unsplash.com" alt="Sandstone Heritage Monuments">
+                    <div class="photo-caption">Historic Sandstone Arches</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://unsplash.com" alt="Braj Culture & Pillars">
+                    <div class="photo-caption">Heritage Architecture Pillars</div>
+                </div>
+            </div>
+
+            <ul>
+                <li><strong>State:</strong> Uttar Pradesh, India</li>
+                <li><strong>Region:</strong> Braj Bhoomi</li>
+                <li><strong>Famous Festivals:</strong> Janmashtami, Lathmar Holi, Govardhan Puja</li>
+                <li><strong>Signature Delicacies:</strong> Mathura Peda, Kachori-Jalebi</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
