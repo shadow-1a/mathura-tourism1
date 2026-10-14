@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates Portal - Mero Mathura</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            padding-bottom: 80px;
+        }
+
+        .app-header {
+            background: linear-gradient(135deg, #0056b3, #007bff);
+            padding: 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .app-header h1 {
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+
+        .back-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 8px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .main-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-heading {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin: 25px 0 15px 0;
+            font-weight: 600;
+            border-left: 4px solid #ff9933;
+            padding-left: 10px;
+        }
+
+        .tab-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px;
+            background-color: #242526;
+            border: 1px solid #3a3b3c;
+            border-radius: 8px;
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .tab-btn.active {
+            border-color: #ff9933;
+            background-color: #3a3b3c;
+            color: #ff9933;
+        }
+
+        .info-card {
+            background-color: #242526;
+            border: 2px solid #3a3b3c;
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.95rem;
+            color: #b0b3b8;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #18191a;
+            border: 1px solid #3a3b3c;
+            border-radius: 8px;
+            color: #ffffff;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #ff9933;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #ff9933;
+            color: #121212;
+            border: none;
+            padding: 14px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-header">
+        <h1>Civil Registry</h1>
+        <a href="index.html" class="back-link">&larr; Home</a>
+    </div>
+
+    <div class="main-container">
+        <h2 class="section-heading">Certificate Application & Search</h2>
+        
+        <div class="tab-box">
+            <div class="tab-btn active">Birth Certificate</div>
+            <div class="tab-btn">Death Certificate</div>
+        </div>
+
+        <div class="info-card">
+            <form onsubmit="alert('Searching registry databases... No matching finalized records found. Please check your transaction token.'); return false;">
+                <div class="form-group">
+                    <label>Registration Number / Ack Ref</label>
+                    <input type="text" placeholder="e.g. CRS-MATH-2026-XXXX" required>
+                </div>
+                <div class="form-group">
+                    <label>Date of Event</label>
+                    <input type="date" required>
+                </div>
+                <div class="form-group">
+                    <label>Full Name of Individual / Child</label>
+                    <input type="text" placeholder="Enter name details" required>
+                </div>
+                <button type="submit" class="submit-btn">Search Registry</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
