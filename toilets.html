@@ -3,46 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mero Mathura - Live Hospital Locator</title>
+    <title>Mero Mathura - Live Toilet Locator</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: #121212; color: #ffffff; padding-bottom: 20px; }
-        .app-header { background-color: #28a745; padding: 15px 20px; display: flex; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .app-header { background-color: #007bff; padding: 15px 20px; display: flex; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
         .back-btn { color: white; text-decoration: none; font-size: 1.5rem; margin-right: 15px; font-weight: bold; }
         .app-header h1 { font-size: 1.3rem; font-weight: 600; }
         .main-container { max-width: 600px; margin: 0 auto; padding: 15px; }
         .filter-panel { background-color: #242526; border-radius: 14px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); text-align: center; }
         .filter-title { font-size: 1rem; font-weight: 600; color: #e4e6eb; margin-bottom: 15px; }
-        .range-display { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 1.6rem; font-weight: bold; color: #28a745; margin-bottom: 15px; }
+        .range-display { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 1.6rem; font-weight: bold; color: #007bff; margin-bottom: 15px; }
         .slider { width: 100%; -webkit-appearance: none; background: #3a3b3c; height: 8px; border-radius: 4px; outline: none; margin-bottom: 25px; }
-        .slider::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%; background: #28a745; cursor: pointer; }
+        .slider::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%; background: #007bff; cursor: pointer; }
         .action-card { background-color: #242526; border-radius: 14px; padding: 20px; border: 1px solid #3a3b3c; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
         .stats-info { font-size: 0.9rem; color: #b0b3b8; margin-bottom: 20px; line-height: 1.5; }
         .stats-info strong { color: #ffffff; }
-        .map-btn { display: inline-block; width: 100%; text-align: center; background-color: #28a745; color: white; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 12px rgba(40,167,69,0.3); }
-        .map-btn:hover { background-color: #1e7e34; }
+        .map-btn { display: inline-block; width: 100%; text-align: center; background-color: #007bff; color: white; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 12 rgba(0,123,255,0.3); transition: background-color 0.2s; }
+        .map-btn:hover { background-color: #0056b3; }
     </style>
 </head>
 <body>
 
     <div class="app-header">
         <a href="index.html" class="back-btn">&larr;</a>
-        <h1>Live Hospital Locator</h1>
+        <h1>Live Toilet Locator</h1>
     </div>
 
     <div class="main-container">
         <div class="filter-panel">
-            <div class="filter-title">Adjust range to pull live medical infrastructure data from Google Maps</div>
+            <div class="filter-title">Adjust range to pull live verified coordinates from Google Maps</div>
             <div class="range-display">
-                <span>🏥</span> <span id="range-value">5</span> km
+                <span>🔍</span> <span id="range-value">5</span> km
             </div>
             <input type="range" min="5" max="50" step="5" value="5" class="slider" id="distance-slider">
 
             <div class="action-card">
                 <p class="stats-info" id="dynamic-text">
-                    In a <strong>5 km</strong> radius, Google Maps targets approximately <strong>4 close medical facilities</strong> immediately surrounding your position.
+                    In a <strong>5 km</strong> radius, Google Maps targets approximately <strong>4 close public restrooms</strong> immediately surrounding your position.
                 </p>
-                <a href="#" id="launch-maps" target="_blank" class="map-btn">🏥 Search Real-Time Hospitals</a>
+                <a href="#" id="launch-maps" target="_blank" class="map-btn">🌐 Search Real-Time Toilets</a>
             </div>
         </div>
     </div>
@@ -60,8 +60,10 @@
             else if (radius <= 40) countEstimate = 40;
             else countEstimate = 50;
 
-            dynamicText.innerHTML = `In a <strong>${radius} km</strong> radius, Google Maps targets approximately <strong>${countEstimate}+ active medical units</strong> immediately surrounding your current position.`;
-            launchMaps.href = `https://google.com{radius}km`;
+            dynamicText.innerHTML = `In a <strong>${radius} km</strong> radius, Google Maps targets approximately <strong>${countEstimate}+ active locations</strong> immediately surrounding your current position.`;
+            
+            // Fixed direct secure query routing format
+            launchMaps.href = "https://google.com" + encodeURIComponent("public toilet restroom near me within " + radius + "km");
         }
 
         slider.addEventListener('input', (e) => {
@@ -70,6 +72,7 @@
             updateMapIntent(parseInt(val));
         });
 
+        // Initialize Intent
         updateMapIntent(5);
     </script>
 </body>
