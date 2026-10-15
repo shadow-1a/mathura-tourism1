@@ -3,326 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mero Mathura - Dashboard & Tourism Portal</title>
+    <title>Mero Mathura - Toilet Locator</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #121212;
-            color: #ffffff;
-            padding-bottom: 80px;
-        }
-
-        /* Top Mobile-Style Header Bar */
-        .app-header {
-            background: linear-gradient(135deg, #0056b3, #007bff);
-            padding: 20px;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .app-header h1 {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #ffffff;
-        }
-
-        .app-header .header-logos {
-            display: flex;
-            gap: 10px;
-        }
-
-        .app-header .circle-logo {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            color: white;
-            font-weight: bold;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .main-container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .section-heading {
-            font-size: 1.4rem;
-            color: #ffffff;
-            margin: 25px 0 15px 0;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            border-left: 4px solid #ff9933;
-            padding-left: 10px;
-        }
-
-        /* Application Grid Layout System */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .dash-card {
-            background-color: #242526;
-            border: 2px solid #3a3b3c;
-            border-radius: 16px;
-            padding: 15px 10px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            text-decoration: none;
-            transition: transform 0.2s, background-color 0.2s, border-color 0.2s;
-        }
-
-        .dash-card:hover {
-            transform: scale(1.05);
-            background-color: #3a3b3c;
-            border-color: #ff9933;
-        }
-
-        .dash-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        .dash-card p {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #e4e6eb;
-            line-height: 1.2;
-        }
-
-        /* Tourism Destination Cards Grid Section */
-        .tourism-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .tour-card {
-            background-color: #242526;
-            border: 1px solid #3a3b3c;
-            border-radius: 14px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-
-        .tour-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-bottom: 3px solid #ff9933;
-        }
-
-        .tour-info {
-            padding: 15px;
-        }
-
-        .tour-info h3 {
-            font-size: 1.2rem;
-            color: #ffffff;
-            margin-bottom: 5px;
-        }
-
-        .tour-info p {
-            font-size: 0.9rem;
-            color: #b0b3b8;
-            margin-bottom: 15px;
-        }
-
-        .tour-btn {
-            display: block;
-            text-align: center;
-            background-color: #ff9933;
-            color: #121212;
-            padding: 10px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            transition: background-color 0.2s;
-        }
-
-        .tour-btn:hover {
-            background-color: #e0882e;
-        }
-
-        /* Floating Action Search Button Control */
-        .floating-search {
-            position: fixed;
-            bottom: 85px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 55px;
-            height: 55px;
-            background-color: #007bff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            color: white;
-            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
-            cursor: pointer;
-            z-index: 999;
-        }
-
-        /* Bottom Menu Ribbon Navigation Bar */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #18191a;
-            border-top: 1px solid #242526;
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            z-index: 1000;
-        }
-
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #b0b3b8;
-            font-size: 0.75rem;
-        }
-
-        .nav-item.active {
-            color: #007bff;
-        }
-
-        .nav-item span {
-            font-size: 1.3rem;
-            margin-bottom: 2px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #121212; color: #ffffff; padding-bottom: 20px; }
+        .app-header { background-color: #007bff; padding: 15px 20px; display: flex; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .back-btn { color: white; text-decoration: none; font-size: 1.5rem; margin-right: 15px; font-weight: bold; }
+        .app-header h1 { font-size: 1.3rem; font-weight: 600; }
+        .main-container { max-width: 600px; margin: 0 auto; padding: 15px; }
+        .filter-panel { background-color: #242526; border-radius: 14px; padding: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .filter-title { font-size: 0.9rem; font-weight: 600; color: #b0b3b8; margin-bottom: 12px; }
+        .range-display { display: flex; align-items: center; gap: 8px; font-size: 1.1rem; font-weight: bold; color: #007bff; margin-bottom: 12px; }
+        .slider { width: 100%; -webkit-appearance: none; background: #3a3b3c; height: 6px; border-radius: 3px; outline: none; }
+        .slider::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; background: #007bff; cursor: pointer; }
+        .list-container { display: flex; flex-direction: column; gap: 15px; }
+        .item-card { background-color: #242526; border-radius: 14px; padding: 15px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+        .card-top { display: flex; justify-content: space-between; align-items: flex-start; }
+        .badge-title-group { display: flex; align-items: center; gap: 10px; }
+        .type-badge { background-color: rgba(0, 123, 255, 0.2); color: #007bff; padding: 4px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; }
+        .item-title { font-size: 1.1rem; font-weight: bold; color: #ffffff; }
+        .distance-badge { color: #d12bd1; font-weight: bold; font-size: 0.9rem; }
+        .item-desc { font-size: 0.9rem; color: #b0b3b8; line-height: 1.4; }
+        .no-results { text-align: center; color: #b0b3b8; margin-top: 30px; display: none; }
     </style>
 </head>
 <body>
 
-    <!-- App Top Bar Frame -->
     <div class="app-header">
-        <h1>Mero Mathura</h1>
-        <div class="header-logos">
-            <div class="circle-logo">🇮🇳</div>
-            <div class="circle-logo">UP</div>
-        </div>
+        <a href="index.html" class="back-btn">&larr;</a>
+        <h1>Toilet Locator</h1>
     </div>
 
     <div class="main-container">
-        
-        <!-- Application Sections -->
-        <h2 class="section-heading">Core Services</h2>
-        <div class="dashboard-grid">
-            
-            <!-- Item 1: About Mathura -->
-            <a href="about-mathura.html" class="dash-card">
-                <div class="dash-icon" style="color: #007bff;">📄</div>
-                <p>About Mathura</p>
-            </a>
-
-            <!-- Item 2: Tourism -->
-            <a href="#tourism-portal" class="dash-card" style="border-color: #ff9933;">
-                <div class="dash-icon" style="color: #ff9933;">🕌</div>
-                <p>Tourism</p>
-            </a>
-
-            <!-- Item 3: Complaint / Service Request -->
-            <a href="complaint.html" class="dash-card">
-                <div class="dash-icon" style="color: #dc3545;">📝</div>
-                <p>Complaint / Request</p>
-            </a>
-
-            <!-- Item 4: Restaurants (Replaced Birth/Death Certificate) -->
-            <a href="restaurants.html" class="dash-card">
-                <div class="dash-icon" style="color: #ffc107;">🍽️</div>
-                <p>Restaurants</p>
-            </a>
-
-            <!-- Item 5: Hospitals (Replaced Jeevan Portal) -->
-            <a href="hospitals.html" class="dash-card">
-                <div class="dash-icon" style="color: #28a745;">🏥</div>
-                <p>Hospitals</p>
-            </a>
-
-            <!-- Item 6: Toilet Locations (Replaced Property Mutation) -->
-            <a href="toilets.html" class="dash-card">
-                <div class="dash-icon" style="color: #17a2b8;">🚻</div>
-                <p>Toilet Locations</p>
-            </a>
-
+        <div class="filter-panel">
+            <div class="filter-title">Select the range to find nearby toilets.</div>
+            <div class="range-display">
+                <span>🔍</span> <span id="range-value">50.0</span> km
+            </div>
+            <input type="range" min="1" max="50" step="1" value="50" class="slider" id="distance-slider">
         </div>
 
-        <!-- Dedicated Tourism Destination Section Grid Layout -->
-        <h2 class="section-heading" id="tourism-portal">Explore Local Attractions</h2>
-        <div class="tourism-list">
+        <div class="list-container" id="items-list"></div>
+        <div class="no-results" id="no-results-msg">No locations found within this range.</div>
+    </div>
 
-            <!-- Card 1: Dwarkadhish Temple -->
-            <div class="tour-card">
-                <img src="dwarkadhish.jpg.webp" alt="Dwarkadhish Temple">
-                <div class="tour-info">
-                    <h3>Dwarkadhish Temple</h3>
-                    <p>Famous for its beautiful Maratha-styled art, intricate carvings, and lively festive celebrations.</p>
-                    <a href="dwarkadhish.html" class="tour-btn">Explore Details &rarr;</a>
-                </div>
-            </div>
+    <script>
+        const rawData = [
+            { type: "PTB", name: "Krishna Janmabhoomi Complex", dist: 1.2, loc: "Near Main Gate Entry Exit, Mathura" },
+            { type: "PTB", name: "Deeg Gate Public Toilet", dist: 1.8, loc: "Deeg Gate Crossing, Main Market, Mathura" },
+            { type: "PTB", name: "Mathura Junction Platform 1", dist: 2.2, loc: "Near Waiting Hall Area, Mathura Station" },
+            { type: "PTB", name: "Bhuteshwar Crossroads Facility", dist: 2.9, loc: "Opposite Bhuteshwar Station Road, Mathura" },
+            { type: "PTB", name: "Dwarkadhish Temple Lane", dist: 3.5, loc: "Vishram Ghat Approach Road, Mathura" },
+            { type: "PTB", name: "Vishram Ghat Riverfront Toilet", dist: 3.8, loc: "Yamuna Kinara Road Walkway, Mathura" },
+            { type: "PTB", name: "New Bus Stand Public Facility", dist: 4.1, loc: "Inside Main Bus Depot Campus, Mathura" },
+            { type: "PTB", name: "Dampier Nagar Community Complex", dist: 4.7, loc: "Near Public Park Boundary, Mathura" },
+            { type: "PTB", name: "Chandan Van Public Booth", dist: 5.2, loc: "Mathura-Vrindavan Road Sector, Mathura" },
+            { type: "PTB", name: "Gita Mandir Highway Stop", dist: 6.5, loc: "Near Main Gate Parking Plaza, Mathura" },
+            { type: "PTB", name: "Jai Gurudev Ashram Public Amenity", dist: 7.2, loc: "NH-19 Highway Service Lane, Mathura" },
+            { type: "PTB", name: "CHAITANYA VIHAAR", dist: 8.7, loc: "Ramanreti Police Chowki, Parikarma marg, Vrindavan" },
+            { type: "PTB", name: "Prem Mandir Sodh Sansthan", dist: 9.1, loc: "Main Parking Area, Vrindavan" },
+            { type: "PTB", name: "RATAN CHATRI", dist: 9.2, loc: "Purani Kalidah, Parikrama Marg, Vrindavan" },
+            { type: "PTB", name: "RATAN CHATRI KALI DEH", dist: 9.4, loc: "KALI DEH, PAANI KI TANKI KE PASS, VRINDAVAN" },
+            { type: "PTB", name: "Bankey Bihari Temple VIP Marg", dist: 10.1, loc: "Near Multi-Level Parking Lot, Vrindavan" },
+            { type: "PTB", name: "ISKCON Temple Raman Reti", dist: 10.5, loc: "Adjacent to Guest House Complex, Vrindavan" },
+            { type: "PTB", name: "Vaishno Devi Mandir Complex", dist: 11.2, loc: "Chhatikara Road Entry Corridor, Vrindavan" },
+            { type: "PTB", name: "Chhatikara Highway Junction", dist: 12.8, loc: "NH-19 Crossing Toll Point, Vrindavan Link" },
+            { type: "PTB", name: "Akshaya Patra Facility", dist: 13.5, loc: "Near Industrial Area Link Road, Vrindavan" },
+            { type: "PTB", name: "Garuda Govind Complex", dist: 15.2, loc: "Chhatikara-Ral Roadside Market, Vrindavan" },
+            { type: "PTB", name: "Radha Kund Parikrama Loop", dist: 21.4, loc: "Shyam Kund Entry Ghat Side, Govardhan" },
+            { type: "PTB", name: "Govardhan Bus Stand Public Unit", dist: 22.8, loc: "Main Parking Area Dropoff, Govardhan" },
+            { type: "PTB", name: "Dan Ghati Mandir Public Suite", dist: 23.5, loc: "Near Temple Entrance Pathway, Govardhan" },
+            { type: "PTB", name: "Kusum Sarovar Heritage Point", dist: 24.9, loc: "Opposite Monument Garden Gate, Govardhan" },
+            { type: "PTB", name: "Anyor Village Parikrama Route", dist: 26.2, loc: "Near Local Community Health Unit, Govardhan" },
+            { type: "PTB", name: "Punchari Ka Lauta Rest Stop", dist: 28.5, loc: "Rajasthan Border Entry Way, Govardhan Outer" },
+            { type: "PTB", name: "Baldeo Main Market Facility", dist: 29.1, loc: "Dauji Mandir Approach Gate, Baldeo" },
+            { type: "PTB", name: "Gokul Mahavan Tourist Desk", dist: 31.4, loc: "Chinta Haran Ghat Corridor, Gokul" },
+            { type: "PTB", name: "Raman Reti Gokul Ashram Area", dist: 32.8, loc: "Near Pilgrim Rest Pavilion, Gokul" },
+            { type: "PTB", name: "Farah Town Crossing Rest Stop", dist: 34.2, loc: "Agra-Mathura National Highway Sector" },
+            { type: "PTB", name: "Raya Railway Station Footsteps", dist: 35.7, loc: "Raya-Mant Road Junction Corridor" },
+            { type: "PTB", name: "Sonkh Town Central Square", dist: 37.1, loc: "Main Bazaar Road Community Center" },
+            { type: "PTB", name: "Barsana Kirti Mandir Perimeter", dist: 39.4, loc: "Bus Parking Utility Ground, Barsana" },
+            { type: "PTB", name: "Radha Rani Temple Footsteps", dist: 40.2, loc: "Staircase Base Entrance Sector, Barsana" },
+            { type: "PTB", name: "Maan Garh Hill Walkway Unit", dist: 41.5, loc: "Parikrama Path Rest House Area, Barsana" },
+            { type: "PTB", name: "Sanket Van Holy Grove Stop", dist: 42.8, loc: "Nandgaon-Barsana Linking Sector" },
+            { type: "PTB", name: "Nandgaon Nand Bhawan Entry", dist: 44.1, loc: "Hilltop Parking Reception Lot, Nandgaon" },
+            { type: "PTB", name: "Panigaon Yamuna Expressway Stop", dist: 45.3, loc: "Toll Booth Link Services Hub, Panigaon" },
+            { type: "PTB", name: "Mant Central Block Office", dist: 46.2, loc: "Market Complex Bypass Junction, Mant" },
+            { type: "PTB", name: "Kosi Kalan Station Outer Yard", dist: 46.9, loc: "Platform 1 Extension Facility, Kosi Kalan" },
+            { type: "PTB", name: "Kosi Kalan Main Grain Market", dist: 47.4, loc: "Mandi Samiti Office Complex, Kosi Kalan" },
+            { type: "PTB", name: "Chhata Tehsil Complex Suite", dist: 47.9, loc: "National Highway Executive Block, Chhata" },
+            { type: "PTB", name: "Naujhil Block Community Point", dist: 48.3, loc: "Main Rural Clinic Link Road, Naujhil" },
+            { type: "PTB", name: "Bajna Town Central Facility", dist: 48.8, loc: "Yamuna Expressway Interchange Node, Bajna" },
+            { type: "PTB", name: "Chaumuha Rural Market Node", dist: 49.1, loc: "Near Inter-College Entrance Field" },
+            { type: "PTB", name: "Shergarh Yamuna River Bridge", dist: 49.4, loc: "Ghat Security Checkpost Point, Shergarh" },
+            { type: "PTB", name: "Ol Town Market Square Suite", dist: 49.7, loc: "Mathura-Bharatpur State Highway Side" },
+            { type: "PTB", name: "Akbarpur Highway Service Oasis", dist: 49.9, loc: "Rest Area Fuel Pump Canopy, NH-19" },
+            { type: "PTB", name: "Dotana Village Border Node", dist: 50.0, loc: "Rural Health Sub-Center Corner Lane" }
+        ];
 
-            <!-- Card 2: Govardhan Hill -->
-            <div class="tour-card">
-                <img src="govardhan.jpg.webp" alt="Govardhan Hill">
-                <div class="tour-info">
-                    <h3>Govardhan Hill</h3>
-                    <p>The legendary hill lifted by young Krishna on his finger to protect villagers from storms.</p>
-                    <a href="govardhan.html" class="tour-btn">Explore Details &rarr;</a>
-                </div>
-            </div>
+        const slider = document.getElementById('distance-slider');
+        const rangeValue = document.getElementById('range-value');
+        const container = document.getElementById('items-list');
+        const noResults = document.getElementById('no-results-msg');
 
-            <!-- Card 3: Kansa Qila -->
-            <div class="tour-card">
-                <img src="kansa.jpg.webp" alt="Kansa Qila">
-                <div class="tour-info">
-                    <h3>Kansa Qila</h3>
-                    <p>An ancient fort representing a blend of Hindu and Islamic architecture right by the river banks.</p>
-                    <a href="kansa-qila.html" class="tour-btn">Explore Details &rarr;</a>
-                </div>
-            </div>
+        function renderListings(maxDist) {
+            container.innerHTML = '';
+            let visibleCount = 0;
 
-            <!-- Card 4: Kusum Sarovar -->
-            <div class="tour-card">
-                <img src="kusum.jpg.webp" alt="Kusum Sarovar">
-                <div class="tour-info">
-                    <h3>Kusum Sarovar</h3>
-
-                    
+            rawData.forEach(item => {
+                if (item.dist <= maxDist) {
+                    visibleCount++;
+                    const card = document.createElement('div');
