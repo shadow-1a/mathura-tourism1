@@ -5,36 +5,234 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mero Mathura - Dashboard & Tourism Portal</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #121212; color: #ffffff; padding-bottom: 80px; }
-        .app-header { background: linear-gradient(135deg, #0056b3, #007bff); padding: 20px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-        .app-header h1 { font-size: 1.8rem; font-weight: bold; color: #ffffff; }
-        .app-header .header-logos { display: flex; gap: 10px; }
-        .app-header .circle-logo { width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: white; font-weight: bold; border: 1px solid rgba(255, 255, 255, 0.4); }
-        .main-container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .section-heading { font-size: 1.4rem; color: #ffffff; margin: 25px 0 15px 0; font-weight: 600; letter-spacing: 0.5px; border-left: 4px solid #ff9933; padding-left: 10px; }
-        .dashboard-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 30px; }
-        .dash-card { background-color: #242526; border: 2px solid #3a3b3c; border-radius: 16px; padding: 15px 10px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; text-decoration: none; transition: transform 0.2s, background-color 0.2s, border-color 0.2s; }
-        .dash-card:hover { transform: scale(1.05); background-color: #3a3b3c; border-color: #ff9933; }
-        .dash-icon { width: 50px; height: 50px; border-radius: 50%; background-color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-        .dash-card p { font-size: 0.85rem; font-weight: 600; color: #e4e6eb; line-height: 1.2; }
-        .tourism-list { display: flex; flex-direction: column; gap: 20px; }
-        .tour-card { background-color: #242526; border: 1px solid #3a3b3c; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
-        .tour-card img { width: 100%; height: 180px; object-fit: cover; border-bottom: 3px solid #ff9933; }
-        .tour-info { padding: 15px; }
-        .tour-info h3 { font-size: 1.2rem; color: #ffffff; margin-bottom: 5px; }
-        .tour-info p { font-size: 0.9rem; color: #b0b3b8; margin-bottom: 15px; }
-        .tour-btn { display: block; text-align: center; background-color: #ff9933; color: #121212; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: background-color 0.2s; }
-        .tour-btn:hover { background-color: #e0882e; }
-        .floating-search { position: fixed; bottom: 85px; left: 50%; transform: translateX(-50%); width: 55px; height: 55px; background-color: #007bff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: white; box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4); cursor: pointer; z-index: 999; }
-        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background-color: #18191a; border-top: 1px solid #242526; display: flex; justify-content: space-around; padding: 10px 0; z-index: 1000; }
-        .nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #b0b3b8; font-size: 0.75rem; }
-        .nav-item.active { color: #007bff; }
-        .nav-item span { font-size: 1.3rem; margin-bottom: 2px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            padding-bottom: 80px;
+        }
+
+        /* Top Mobile-Style Header Bar */
+        .app-header {
+            background: linear-gradient(135deg, #0056b3, #007bff);
+            padding: 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .app-header h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .app-header .header-logos {
+            display: flex;
+            gap: 10px;
+        }
+
+        .app-header .circle-logo {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: white;
+            font-weight: bold;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .main-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-heading {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin: 25px 0 15px 0;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-left: 4px solid #ff9933;
+            padding-left: 10px;
+        }
+
+        /* Application Grid Layout System */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .dash-card {
+            background-color: #242526;
+            border: 2px solid #3a3b3c;
+            border-radius: 16px;
+            padding: 15px 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.2s, border-color 0.2s;
+        }
+
+        .dash-card:hover {
+            transform: scale(1.05);
+            background-color: #3a3b3c;
+            border-color: #ff9933;
+        }
+
+        .dash-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .dash-card p {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #e4e6eb;
+            line-height: 1.2;
+        }
+
+        /* Tourism Destination Cards Grid Section */
+        .tourism-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tour-card {
+            background-color: #242526;
+            border: 1px solid #3a3b3c;
+            border-radius: 14px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .tour-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 3px solid #ff9933;
+        }
+
+        .tour-info {
+            padding: 15px;
+        }
+
+        .tour-info h3 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .tour-info p {
+            font-size: 0.9rem;
+            color: #b0b3b8;
+            margin-bottom: 15px;
+        }
+
+        .tour-btn {
+            display: block;
+            text-align: center;
+            background-color: #ff9933;
+            color: #121212;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+
+        .tour-btn:hover {
+            background-color: #e0882e;
+        }
+
+        /* Floating Action Search Button Control */
+        .floating-search {
+            position: fixed;
+            bottom: 85px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 55px;
+            height: 55px;
+            background-color: #007bff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        /* Bottom Menu Ribbon Navigation Bar */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #18191a;
+            border-top: 1px solid #242526;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #b0b3b8;
+            font-size: 0.75rem;
+        }
+
+        .nav-item.active {
+            color: #007bff;
+        }
+
+        .nav-item span {
+            font-size: 1.3rem;
+            margin-bottom: 2px;
+        }
     </style>
 </head>
 <body>
 
+    <!-- App Top Bar Frame -->
     <div class="app-header">
         <h1>Mero Mathura</h1>
         <div class="header-logos">
@@ -44,34 +242,42 @@
     </div>
 
     <div class="main-container">
+        
+        <!-- Application Sections -->
         <h2 class="section-heading">Core Services</h2>
         <div class="dashboard-grid">
             
+            <!-- Item 1: About Mathura -->
             <a href="about-mathura.html" class="dash-card">
                 <div class="dash-icon" style="color: #007bff;">📄</div>
                 <p>About Mathura</p>
             </a>
 
-            <a href="#tourism-portal" class="dash-card">
+            <!-- Item 2: Tourism -->
+            <a href="#tourism-portal" class="dash-card" style="border-color: #ff9933;">
                 <div class="dash-icon" style="color: #ff9933;">🕌</div>
                 <p>Tourism</p>
             </a>
 
+            <!-- Item 3: Complaint / Service Request -->
             <a href="complaint.html" class="dash-card">
                 <div class="dash-icon" style="color: #dc3545;">📝</div>
                 <p>Complaint / Request</p>
             </a>
 
+            <!-- Item 4: Restaurants (Replaced Birth/Death Certificate) -->
             <a href="restaurants.html" class="dash-card">
                 <div class="dash-icon" style="color: #ffc107;">🍽️</div>
                 <p>Restaurants</p>
             </a>
 
+            <!-- Item 5: Hospitals (Replaced Jeevan Portal) -->
             <a href="hospitals.html" class="dash-card">
                 <div class="dash-icon" style="color: #28a745;">🏥</div>
                 <p>Hospitals</p>
             </a>
 
+            <!-- Item 6: Toilet Locations (Replaced Property Mutation) -->
             <a href="toilets.html" class="dash-card">
                 <div class="dash-icon" style="color: #17a2b8;">🚻</div>
                 <p>Toilet Locations</p>
@@ -79,8 +285,11 @@
 
         </div>
 
+        <!-- Dedicated Tourism Destination Section Grid Layout -->
         <h2 class="section-heading" id="tourism-portal">Explore Local Attractions</h2>
         <div class="tourism-list">
+
+            <!-- Card 1: Dwarkadhish Temple -->
             <div class="tour-card">
                 <img src="dwarkadhish.jpg.webp" alt="Dwarkadhish Temple">
                 <div class="tour-info">
@@ -90,6 +299,7 @@
                 </div>
             </div>
 
+            <!-- Card 2: Govardhan Hill -->
             <div class="tour-card">
                 <img src="govardhan.jpg.webp" alt="Govardhan Hill">
                 <div class="tour-info">
@@ -98,16 +308,19 @@
                     <a href="govardhan.html" class="tour-btn">Explore Details &rarr;</a>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="floating-search">🔍</div>
+            <!-- Card 3: Kansa Qila -->
+            <div class="tour-card">
+                <img src="kansa.jpg.webp" alt="Kansa Qila">
+                <div class="tour-info">
+                    <h3>Kansa Qila</h3>
+                    <p>An ancient fort representing a blend of Hindu and Islamic architecture right by the river banks.</p>
+                    <a href="kansa-qila.html" class="tour-btn">Explore Details &rarr;</a>
+                </div>
+            </div>
 
-    <div class="bottom-nav">
-        <a href="#" class="nav-item active"><span>🏠</span>Home</a>
-        <a href="#tourism-portal" class="nav-item"><span>🕌</span>Tourism</a>
-        <a href="complaint.html" class="nav-item"><span>📝</span>Services</a>
-    </div>
-
-</body>
-</html>
+            <!-- Card 4: Kusum Sarovar -->
+            <div class="tour-card">
+                <img src="kusum.jpg.webp" alt="Kusum Sarovar">
+                <div class="tour-info">
+                    <h3>Kusum Sarovar</h3>
