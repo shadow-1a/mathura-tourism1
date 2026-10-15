@@ -16,13 +16,13 @@
         .range-display { display: flex; align-items: center; gap: 8px; font-size: 1.1rem; font-weight: bold; color: #007bff; margin-bottom: 12px; }
         .slider { width: 100%; -webkit-appearance: none; background: #3a3b3c; height: 6px; border-radius: 3px; outline: none; }
         .slider::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; background: #007bff; cursor: pointer; }
-        .list-container { display: flex; flex-direction: column; gap: 15px; }
-        .item-card { background-color: #242526; border-radius: 14px; padding: 15px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+        .list-container { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
+        .item-card { background-color: #242526; border-radius: 14px; padding: 15px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); border: 1px solid #3a3b3c; }
         .card-top { display: flex; justify-content: space-between; align-items: flex-start; }
         .badge-title-group { display: flex; align-items: center; gap: 10px; }
         .type-badge { background-color: rgba(0, 123, 255, 0.2); color: #007bff; padding: 4px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; }
         .item-title { font-size: 1.1rem; font-weight: bold; color: #ffffff; }
-        .distance-badge { color: #d12bd1; font-weight: bold; font-size: 0.9rem; }
+        .distance-badge { color: #ff9933; font-weight: bold; font-size: 0.9rem; }
         .item-desc { font-size: 0.9rem; color: #b0b3b8; line-height: 1.4; }
         .no-results { text-align: center; color: #b0b3b8; margin-top: 30px; display: none; }
     </style>
@@ -113,4 +113,3 @@
             rawData.forEach(item => {
                 if (item.dist <= maxDist) {
                     visibleCount++;
-                    const card = document.createElement('div');
